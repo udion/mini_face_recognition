@@ -1,0 +1,20 @@
+%this will demonstrate the usage of all the functions
+root = './att_faces';
+k = 10;
+[X,meanvec] = loader(root, 32, 6);
+eigSpace = get_eigSpace(X,k);
+[coeffs] = profiler(X, eigSpace);
+
+%testing
+probe = double(imread('./att_faces/s13/9.pgm'));
+probe = probe(:);
+t = probe-meanvec;
+r = profiler(t,eigSpace);
+s = size(coeffs);
+rsmd = zeros(s(1),1);
+for i=1:s(1)
+    rsmd(i,1) = coeffs(i,:) - r;
+end
+    
+
+    

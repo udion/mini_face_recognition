@@ -1,0 +1,7 @@
+function [coeffvec, meanvec] = profiler(X, eigSpace, meanvec)
+%PROFILER Summary of this function goes here
+%   Detailed explanation goes here
+    
+
+end
+

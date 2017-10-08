@@ -1,0 +1,13 @@
+function [eigSpace] = get_eigSpace(X, k)
+%GET_EIGSPACE: takes the high dimensional X matrix of database
+% and the reduced dimension, gives the reduced dimension eigen space
+    L = X'*X;
+    s = size(L);
+    [evec, ~] = eig(L);
+    eig
+    topKvec = zeros(s(1),k);
+    for i=1:k
+        topKvec(:,i) = evec(:, s(1)-i+1);
+    end
+    eigSpace = topKvec;
+end
